@@ -1,0 +1,33 @@
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/grmrgecko/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/anaconda3/bin:$PATH"
+
+ZSH_CONFIG="$HOME/.config/zsh"
+source "$ZSH_CONFIG/functions"
+
+zsh_add_config keybinds.zsh
+
+PURE_PROMPT_SYMBOL="$"
+PROMPT_PURE_SSH_CONNECTION=YES
+zsh_add_plugin sindresorhus/pure
+autoload -U promptinit; promptinit
+zstyle :prompt:pure:user color cyan
+zstyle :prompt:pure:host color white
+zstyle ':prompt:pure:prompt:*' color white
+prompt pure
+
+zsh_add_plugin zsh-users/zsh-syntax-highlighting
+zsh_add_plugin zsh-users/zsh-autosuggestions
+
+neofetch

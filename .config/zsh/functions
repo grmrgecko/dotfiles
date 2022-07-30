@@ -1,0 +1,14 @@
+#!/bin/zsh
+function zsh_add_config() {
+  [ -f "$ZSH_CONFIG/$1" ] && ! [ -L "$ZSH_CONFIG/$1" ] && source "$ZSH_CONFIG/$1"
+}
+
+function zsh_add_plugin() {
+  PLUGIN_NAME=$(echo $1 | cut -d"/" -f2)
+  if [ -d "$ZSH_CONFIG/plugins/$PLUGIN_NAME" ]; then
+    zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
+    zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+  else
+    git clone "https://github.com/$1.git" "$ZSH_CONFIG/plugins/$PLUGIN_NAME"
+  fi
+}
