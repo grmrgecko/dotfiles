@@ -5,10 +5,9 @@ function zsh_add_config() {
 
 function zsh_add_plugin() {
   PLUGIN_NAME=$(echo $1 | cut -d"/" -f2)
-  if [ -d "$ZSH_CONFIG/plugins/$PLUGIN_NAME" ]; then
-    zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
-    zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-  else
+  if ! [ -d "$ZSH_CONFIG/plugins/$PLUGIN_NAME" ]; then
     git clone "https://github.com/$1.git" "$ZSH_CONFIG/plugins/$PLUGIN_NAME"
   fi
+  zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
+  zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
 }
