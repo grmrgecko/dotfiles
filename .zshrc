@@ -19,6 +19,9 @@ source "$ZSH_CONFIG/functions"
 zsh_add_config keybinds.zsh
 
 PURE_PROMPT_SYMBOL="$"
+if [ "$USER" = "root" ]; then
+  PURE_PROMPT_SYMBOL="#"
+fi
 PROMPT_PURE_SSH_CONNECTION=YES
 zsh_add_plugin sindresorhus/pure
 autoload -U promptinit; promptinit
