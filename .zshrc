@@ -1,5 +1,5 @@
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/grmrgecko/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -23,7 +23,7 @@ if [ "$USER" = "root" ]; then
   PURE_PROMPT_SYMBOL="#"
 fi
 PROMPT_PURE_SSH_CONNECTION=YES
-zsh_add_plugin sindresorhus/pure
+zsh_fpath_plugin sindresorhus/pure
 autoload -U promptinit; promptinit
 zstyle :prompt:pure:user color cyan
 zstyle :prompt:pure:host color white
@@ -31,6 +31,8 @@ zstyle ':prompt:pure:prompt:*' color white
 prompt pure
 
 zsh_add_plugin zsh-users/zsh-syntax-highlighting
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zsh_add_plugin zsh-users/zsh-autosuggestions
 
 neofetch
