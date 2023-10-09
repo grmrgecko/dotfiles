@@ -6,12 +6,13 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/anaconda3/bin:$PATH"
+export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/anaconda3/bin:$PATH:/usr/local/cuda/bin"
+export EDITOR="vim"
 
 ZSH_CONFIG="$HOME/.config/zsh"
 source "$ZSH_CONFIG/functions"
