@@ -31,7 +31,7 @@ egrep "^export " ~/.bash_profile | while read e
 end
 
 if status --is-interactive
-    neofetch
+    fastfetch
 end
 
 set -U fish_user_paths /usr/local/ubin ~/bin ~/go/bin ~/anaconda3/bin $fish_user_paths

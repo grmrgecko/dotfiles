@@ -36,4 +36,4 @@ zsh_add_plugin zsh-users/zsh-syntax-highlighting
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zsh_add_plugin zsh-users/zsh-autosuggestions
 
-neofetch
+fastfetch
