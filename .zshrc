@@ -11,6 +11,7 @@ export TERM="konsole"
 export BROWSER="firefox"
 export VIDEO="mpv"
 export OPENER="xdg-open"
+export GOPATH="$HOME/go"
 
 export ZDOTDIR="$HOME/.config/zsh"
 
