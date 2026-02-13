@@ -1,10 +1,26 @@
 autoload -Uz compinit
 compinit
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
 
-export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$home/.local/bin:$PATH"
+# Completion settings.
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# History settings.
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+
+# Shell options.
+setopt CORRECT
+setopt INTERACTIVE_COMMENTS
+setopt EXTENDED_GLOB
+setopt AUTO_CD
+
+export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export EDITOR="vim"
 export TERMINAL="konsole"
 export BROWSER="firefox"
