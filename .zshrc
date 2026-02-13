@@ -4,25 +4,28 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 
-export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/ubin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$home/.local/bin:$PATH"
 export EDITOR="vim"
 export TERMINAL="konsole"
-export TERM="konsole"
 export BROWSER="firefox"
 export VIDEO="mpv"
 export OPENER="xdg-open"
 export GOPATH="$HOME/go"
 
-export ZDOTDIR="$HOME/.config/zsh"
-
 # Set emacs key binding.
 bindkey -e
 
+# Set zsh config directory.
+ZSH_CONFIG="$HOME/.config/zsh"
+
 # Import functions.
-source "$ZDOTDIR/functions"
+source "$ZSH_CONFIG/functions"
 
 # Set custom key bindings.
 zsh_add_config keybinds.zsh
+
+# Load configs local to the system.
+zsh_add_config local.zsh
 
 # Configure pure-prompt.
 export PURE_PROMPT_SYMBOL="$"

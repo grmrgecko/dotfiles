@@ -1,12 +1,12 @@
 #!/bin/zsh
 function zsh_add_config() {
-  [ -f "$ZDOTDIR/$1" ] && ! [ -L "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+  [ -f "$ZSH_CONFIG/$1" ] && ! [ -L "$ZSH_CONFIG/$1" ] && source "$ZSH_CONFIG/$1"
 }
 
 function zsh_add_plugin() {
   PLUGIN_NAME=$(echo $1 | cut -d"/" -f2)
-  if ! [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
-    git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+  if ! [ -d "$ZSH_CONFIG/plugins/$PLUGIN_NAME" ]; then
+    git clone "https://github.com/$1.git" "$ZSH_CONFIG/plugins/$PLUGIN_NAME"
   fi
   zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
   zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
@@ -16,8 +16,8 @@ function zsh_add_plugin() {
 
 function zsh_fpath_plugin() {
   PLUGIN_NAME=$(echo $1 | cut -d"/" -f2)
-  if ! [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
-    git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+  if ! [ -d "$ZSH_CONFIG/plugins/$PLUGIN_NAME" ]; then
+    git clone "https://github.com/$1.git" "$ZSH_CONFIG/plugins/$PLUGIN_NAME"
   fi
-  fpath+=($ZDOTDIR/plugins/$PLUGIN_NAME)
+  fpath+=($ZSH_CONFIG/plugins/$PLUGIN_NAME)
 }
